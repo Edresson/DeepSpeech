@@ -595,6 +595,7 @@ def train():
             while True:
                 try:
                     print(train_op)
+                    
                     _, current_step, batch_loss, problem_files, step_summary = \
                         session.run([train_op, global_step, loss, non_finite_files, step_summaries_op],
                                     feed_dict=feed_dict)
