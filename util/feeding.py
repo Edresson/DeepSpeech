@@ -66,6 +66,7 @@ def samples_to_mfccs(samples, sample_rate, train_phase=False):
 
 def audiofile_to_features(wav_filename, train_phase=False):
     samples = tf.io.read_file(wav_filename)
+    print(wav_filename)
     decoded = contrib_audio.decode_wav(samples, desired_channels=1)
     features, features_len = samples_to_mfccs(decoded.audio, decoded.sample_rate, train_phase=train_phase)
 
