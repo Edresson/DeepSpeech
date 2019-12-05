@@ -419,6 +419,7 @@ def try_loading(session, saver, checkpoint_filename, caption, load_step=True, lo
 
 
 def train():
+    
     do_cache_dataset = True
 
     # pylint: disable=too-many-boolean-expressions
@@ -595,7 +596,7 @@ def train():
             while True:
                 try:
                     print("começou o treinamento")
-                    print(non_finite_files)
+                    print(iterator.get_next())
 
                     _, current_step, batch_loss, problem_files, step_summary = \
                         session.run([train_op, global_step, loss, non_finite_files, step_summaries_op],
